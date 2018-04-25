@@ -11,8 +11,9 @@
 ### Deploy Azure Machine Learning as an IoT Edge module
 
 #### Create the Azure ML container
-**** this par only workd with Azure ML Workbench ******
+**** this par only works with Azure ML Workbench ******
 
+```
 az login
 
 az provider register -n Microsoft.MachineLearningCompute
@@ -21,6 +22,7 @@ az provider register -n Microsoft.ContainerService
 
 az provider show -n Microsoft.MachineLearningCompute
 az provider show -n Microsoft.MachineLearningCompute -o table
+```
 
 #### Local deployment
 
@@ -47,7 +49,6 @@ on portal : add iotedge device
 
 ### Add registry credentials to your Edge device
 iotedgectl login --address <registry-login-server> --username <registry-username> --password <registry-password>
-
 
 ### Cleanup installation
 
