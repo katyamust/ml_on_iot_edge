@@ -33,7 +33,9 @@ az ml env setup -l westEurope -n mlgetonboard -g GetOnboard-rg
 ```
 
 ### Create the Azure ML container and pushes it into Azure Containter Registry
+```
 az ml service create realtime --model-file model.pkl -f iot_score.py -n mlgob -r python
+```
 
 check : on portal: go to ACR, it says running
 
