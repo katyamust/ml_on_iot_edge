@@ -22,11 +22,13 @@ az provider register -n Microsoft.ContainerService
 az provider show -n Microsoft.MachineLearningCompute
 az provider show -n Microsoft.MachineLearningCompute -o table
 
-## Local deployment
+#### Local deployment
 
-### set up a local environment (creates ACR)
+#### set up a local environment (creates ACR)
+'''
 az ml env setup -l [Azure Region, e.g. eastus2] -n [your environment name] [-g [existing resource group]]
 az ml env setup -l westEurope -n mlgetonboard -g GetOnboard-rg
+'''
 
 ### Create the Azure ML container and pushes it into Azure Containter Registry
 az ml service create realtime --model-file model.pkl -f iot_score.py -n mlgob -r python
@@ -60,7 +62,7 @@ iotedgectl setup --connection-string "lkajsdfklj" --nopass
 iotedgectl start
 
 docker logs -f edgeAgent
-
+```
 
 # Input Output Routing
 
