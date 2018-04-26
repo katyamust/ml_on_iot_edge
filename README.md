@@ -26,11 +26,31 @@ az provider show -n Microsoft.MachineLearningCompute -o table
 
 #### Local deployment
 
-#### set up a local environment (creates ACR)
+#### Set up a local environment (creates ACR)
+
 ```
 az ml env setup -l [Azure Region, e.g. eastus2] -n [your environment name] [-g [existing resource group]]
 az ml env setup -l westEurope -n mlgetonboard -g GetOnboard-rg
 ```
+### Azure Container Registry
+The command above creates default ACR in provided resource group.
+All the containers will use this environment later and containers will be pushed to that registry
+
+To change the resgitry you can use docker command
+
+```
+docker tag --help
+example:
+docker images
+#see all aimges created with associated ACR
+
+docker tag mlcrpacrdab009332683.azurecr.io/mlgob1:3 mlgob.azurecr.io/mlgob1:1
+docker push mlgob.azurecr.io/mlgob1
+```
+
+azml env setup command created own registry with funny name . This also can probablyl be changed in
+aml_config dir in the Azure Workbech workiing directory if you started cmd prompt from Azure Workbench like I am,
+look at config and yml files inside this dir
 
 ### Create the Azure ML container and pushes it into Azure Containter Registry
 ```
